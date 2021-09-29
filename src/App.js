@@ -27,28 +27,33 @@ function App() {
   };
 
   return (
-    <div className="App container m-5 p-5">
+    <div className="container mt-5 is-flex is-justify-content-center is-align-content-center is-flex-direction-column">
+      <div className="notification is-primary">
+        Firebase Authentication using <strong>React Js</strong>
+      </div>
       {!isSignin && (
-        <div>
-          <button className="p-2" onClick={() => handleClick(google)}>
-            Signin with Google <i class="fab fa-google p-2"></i>
+        <div className="box is-flex is-justify-content-center is-align-content-center mt-5">
+          <button
+            class="button is-primary is-large"
+            onClick={() => handleClick(google)}
+          >
+            Signin with Google
           </button>
         </div>
       )}
 
       {isSignin && (
-        <div className="container m-5 p-4">
-          <h2 className="lead">Welcome {data.displayName}</h2>
-          <div className="card">
-            <img src={data.photoURL} className="card-img-top" alt="img" />
-            <div className="card-body text-center">
-              <h5 className="card-title">{data.displayName}</h5>
-              <p className="card-text">{data.email}</p>
-              <p className="card-text">{data.phoneNumber}</p>
-              <button className="btn btn-danger" onClick={handleLogout}>
-                Logout
-              </button>
-            </div>
+        <div className="container">
+          <div class="notification is-link">Login Successfully!</div>
+          <div className="box">
+            <h2 className="is-size-1">Welcome {data.displayName}</h2>
+            <img src={data.photoURL} alt="profile_img" />
+            <h5 className="is-size-4">{data.displayName}</h5>
+            <p className="is-size-5">{data.email}</p>
+            <p className="is-size-5">{data.phoneNumber}</p>
+            <button className="button is-danger mt-5" onClick={handleLogout}>
+              Logout
+            </button>
           </div>
         </div>
       )}
